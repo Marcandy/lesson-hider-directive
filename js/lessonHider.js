@@ -5,13 +5,16 @@ angular.module('directivePractice')
       restrict: 'E',
       templateUrl: './lessonHider.html',
       link: function (scope, elem, attrs) {
-          console.log(scope, elem, attrs);
+          scope.getSchedule.then(function (response) {
+            scope.schedule = response;
+          })
+          
       },
       scope: {
         lesson: '='
       },
-      controller: function ($scope) {
-
+      controller: function ($scope, lessonService) {
+        $scope.getSchedule = lessonService.getSchedule();
       }
     }
   })
