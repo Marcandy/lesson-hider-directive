@@ -8,7 +8,7 @@ angular.module('directivePractice')
           console.log(scope, elem, attrs);
       },
       scope: {
-        data: '<'
+        lessons: '<'
       }
     }
   })
