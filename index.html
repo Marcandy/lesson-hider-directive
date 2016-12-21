@@ -8,8 +8,14 @@
 </head>
 <body ng-controller='lessonCtrl'>
 
+  <div class="">
+    {{test}}
+  </div>
 
-  <lesson-hider my-test="hello there!"></lesson-hider>
+  <ul>
+    <lesson-hider ng-repeat='lesson in lessons' lesson="lesson" day-alert='announceDay(lesson, day)'></lesson-hider>
+  </ul>
+
 
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.js" charset="utf-8"></script>
 

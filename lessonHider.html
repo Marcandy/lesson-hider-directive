@@ -1,4 +1,7 @@
 
 <div class="">
-  <p ng-repeat='lesson in arrLessons'>{{lesson}}</p>
+
+  {{lesson}}
+
+  <button type="button" ng-click='dayAlert({lesson: lesson, day: lessonDay})'>Cross</button>
 </div>
