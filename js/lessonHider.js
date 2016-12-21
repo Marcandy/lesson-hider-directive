@@ -4,17 +4,30 @@ angular.module('directivePractice')
     return {
       restrict: 'E',
       templateUrl: './lessonHider.html',
-      link: function (scope, elem, attrs) {
-          scope.getSchedule.then(function (response) {
-            scope.schedule = response;
-          })
-          
-      },
       scope: {
-        lesson: '='
+        lesson: '=',
+        datAlert: '&'
       },
+
       controller: function ($scope, lessonService) {
         $scope.getSchedule = lessonService.getSchedule();
+      },
+
+      link: function (scope, elem, attrs) {
+
+          scope.getSchedule.then(function (response) {
+            scope.schedule = response.data;
+
+            for (var i = 0; i < scope.schedule.length; i++) {
+              if (scope.schedule[i].lesson === scope.lesson) {
+                element.css("text-decoration", "line-through");
+                return;
+              }
+            }
+          })
       }
+
+
+
     }
   })
