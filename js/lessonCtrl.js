@@ -6,6 +6,6 @@ angular.module('directivePractice')
     $scope.test = 'two-way data binding!'
 
     $scope.announceDay = function (lesson, day) {
-      alert(lesson + '')
+      alert(lesson + ' is active on ' + day + '.')
     }
   })
